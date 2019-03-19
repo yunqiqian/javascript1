@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Lato">
+  <title>Challenge 4</title>
+    <style>
+    .errorMsg {
+      font-family: 'Lato', sans-serif;
+      font-size: 10px;
+      color:red;
+      display: none;}
+    </style>
+
+    <script>
+
+    function checkForm(){
+      // Write a function that displays the appropriate error message(s) if a field is left blank.  Make sure the form action is not performed if either field is blank.
+      console.log("Yep, my function is being called")
+      let namefield = document.querySelector('#name').value;
+      let addressfield = document.querySelector('#addr').value;
+      let nameError = document.querySelector('#nameError');
+      let addrError = document.querySelector('#addressError');
+
+      if (namefield.length === 0){
+        nameError.style.display = 'block';
+      }
+      else{
+        nameError.style.display = 'none';
+      }
+
+      if (addressfield.length == 0){
+        addrError.style.display = 'block';
+      }
+      else{
+        addrError.style.display = 'none';
+      }
+
+      if (namefield.length === 0 || addressfield.length === 0){
+        return false;
+      }
+
+
+    }
+    </script>
+</head>
+<body>
+    <h1>Challenge 3</h1>
+  <form action="challenge4.html" onsubmit="return checkForm();">
+        <fieldset>
+        <legend>Personal details</legend>
+          <label for="name">Full name: </label>
+            <input type="text" name="fullname" id="name"><br/>
+            <p class="errorMsg" id="nameError">Please enter your name above!</p>
+
+          <label for ="streetaddr"></label>
+            Street Address:
+            <input type="text" name="addr" id="addr">
+            <p class="errorMsg" id="addressError">Please enter your street address!</p>
+        </fieldset>
+        <input type="submit" value="Submit it!" onsubmit="">
+    </form>
+</body>
+</html>
